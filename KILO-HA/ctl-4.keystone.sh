@@ -75,7 +75,7 @@ cat << EOF > /etc/apache2/sites-available/wsgi-keystone.conf
 Listen 5000
 Listen 35357
  
-<VirtualHost *:5000>
+<VirtualHost *:5005>
     WSGIDaemonProcess keystone-public processes=5 threads=1 user=keystone display-name=%{GROUP}
     WSGIProcessGroup keystone-public
     WSGIScriptAlias / /var/www/cgi-bin/keystone/main
@@ -89,7 +89,7 @@ Listen 35357
     CustomLog /var/log/apache2/keystone-access.log combined
 </VirtualHost>
  
-<VirtualHost *:35357>
+<VirtualHost *:35358>
     WSGIDaemonProcess keystone-admin processes=5 threads=1 user=keystone display-name=%{GROUP}
     WSGIProcessGroup keystone-admin
     WSGIScriptAlias / /var/www/cgi-bin/keystone/admin
