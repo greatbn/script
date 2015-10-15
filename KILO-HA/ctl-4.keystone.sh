@@ -72,8 +72,8 @@ echo "ServerName $CON_MGNT_IP" > /etc/apache2/conf-available/servername.conf
 sudo a2enconf servername
  
 cat << EOF > /etc/apache2/sites-available/wsgi-keystone.conf
-Listen 5000
-Listen 35357
+Listen 5005
+Listen 35358
  
 <VirtualHost *:5005>
     WSGIDaemonProcess keystone-public processes=5 threads=1 user=keystone display-name=%{GROUP}
