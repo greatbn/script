@@ -45,6 +45,8 @@ sleep 2
 
 apt-get install -y nginx apache2-utils
 touch /etc/nginx/sites-available/docker-registry
+http_host='$http_host'
+remote_addr='$remote_addr'
 nginx_config=/etc/nginx/sites-available/docker-registry
 cat <<EOF >$nginx_config
 # For versions of Nginx > 1.3.9 that include chunked transfer encoding support
@@ -88,7 +90,8 @@ server {
 
 }
 EOF
-
+unset http_host
+unset remote_addr
 service nginx restart
 #run if you use your key create by openssl
 #openssl genrsa -out devdockerCA.key 2048
