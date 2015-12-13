@@ -16,7 +16,7 @@ sleep 3
 apt-get install wget apache2 mysql-server php5-mysql php5 libapache2-mod-php5 php5-mcrypt  mysql-server -y
 echo "Tao database"
 mysql -uroot -p$ROOT_PASSWORD -e "create database $DB_NAME"
-mysql -uroot -p$ROOT_PASSWORD -e "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by $DB_PASS"
+mysql -uroot -p$ROOT_PASSWORD -e "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'"
 echo "Cai dat wordpress"
 sleep 3
 wget https://wordpress.org/latest.tar.gz
