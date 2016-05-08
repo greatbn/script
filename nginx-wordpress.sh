@@ -1,5 +1,5 @@
 
-export DOMAIN=tvseriesonline.info
+export DOMAIN=xxx.com
 export DB_ROOT_PASSWD='saphi'
 export DB_USER='saphi'
 export DB_NAME='wordpress'
