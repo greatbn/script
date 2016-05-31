@@ -1,0 +1,14 @@
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do | config |
+	config.vm.box = "ubuntu/trusty64"
+	config.vm.define "gluster-server" do | server |
+		server.vm.network :private_network, ip: "10.30.0.50"
+		server.vm.hostname = "server"
+		server.vm.provision :shell, path: "script/server.sh"
+	end
+	config.vm.define "gluster-client" do |client|
+		client.vm.network :private_network, ip: "10.30.0.51"
+		client.vm.hostname =  "client"
+		client.vm.provision :shell, path: "script/client.sh"
+	end
+end
